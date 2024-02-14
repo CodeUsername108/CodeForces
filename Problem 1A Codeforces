@@ -1,0 +1,34 @@
+//Theatre Square in the capital city of Berland has a rectangular shape with the size n × m meters. On the occasion of the city's anniversary, a decision was taken to pave the Square with square granite flagstones. Each flagstone is of the size a × a.
+//What is the least number of flagstones needed to pave the Square? It's allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It's not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square.
+
+#include <stdio.h>
+
+int main()
+{
+    int n,m,a;
+    printf("Enter n , m, a\n");
+    scanf("%d\n", &n);
+    scanf("%d\n", &m);
+    scanf("%d\n", &a);
+    int l_count = 0;
+    for(int i =0;i<1000;i++){
+        if(n-l_count*a>0){
+            l_count++;
+        }
+        else if(n-l_count*a<=0){
+            break;
+        }
+    }
+    int b_count = 0;
+    for(int i =0;i<1000;i++){
+        if(m-b_count*a>0){
+            b_count++;
+        }
+        else if(n-b_count*a<=0){
+            break;
+        }
+    }
+    int total = b_count*l_count;
+    printf("total is %d\n",total);
+    return 0;
+}
